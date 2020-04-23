@@ -32,6 +32,8 @@ public class QueryDataResp extends BaseResponse {
         public int total;
         public List<FieldsBean> fields;
         public List<RecordsBean> records;
+        @JSONField(name = "_links")
+        public LinksBean links;
 
         public static class LinksBean {
             /**
@@ -62,7 +64,13 @@ public class QueryDataResp extends BaseResponse {
 
             @JSONField(name = "volume_of_mobile_data")
             public String volumeOfMobileData;
+            @JSONField(name = "_id")
+            public String id;
             public String quarter;
+
+            public Double getVolumeOfMobileData() {
+                return Double.parseDouble(volumeOfMobileData);
+            }
         }
     }
 
